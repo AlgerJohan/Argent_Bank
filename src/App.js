@@ -1,12 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { Fragment, useEffect } from "react";
+import axios from "axios";
+// import logo from "./logo.svg";
+// import { Counter } from "./features/counter/Counter";
+import "./App.css";
+import { useState } from "react";
 
-function App() {
+const App = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios("https://jsonplaceholder.typicode.com/posts");
+      setData(response.data);
+      console.log("updated");
+    };
+    fetchData();
+    console.log("mounted");
+  }, []);
+  console.log(data);
   return (
     <div className="App">
-      <header className="App-header">
+      <Fragment>
+        <ul>
+          {data.map((item) => (
+            <li key={item.id}>
+              <p>{item.title}</p>
+            </li>
+          ))}
+        </ul>
+      </Fragment>
+      {/* <p>Count: {count}</p>
+      <button onClick={() => setCount(count + "hello")}>Increment</button> */}
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Counter />
         <p>
@@ -50,9 +74,9 @@ function App() {
             React Redux
           </a>
         </span>
-      </header>
+      </header> */}
     </div>
   );
-}
+};
 
 export default App;
