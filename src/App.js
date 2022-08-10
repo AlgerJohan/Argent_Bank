@@ -1,9 +1,6 @@
 import React, { Fragment, useEffect } from "react";
-import axios from "axios";
-// import logo from "./logo.svg";
-// import { Counter } from "./features/counter/Counter";
 import "./App.css";
-import { useState } from "react";
+import HomePage from "./pages/HomePage";
 
 const App = () => {
   const [data, setData] = useState([]);
@@ -19,15 +16,7 @@ const App = () => {
   console.log(data);
   return (
     <div className="App">
-      <Fragment>
-        <ul>
-          {data.map((item) => (
-            <li key={item.id}>
-              <p>{item.title}</p>
-            </li>
-          ))}
-        </ul>
-      </Fragment>
+      <HomePage />
     </div>
   );
 };
