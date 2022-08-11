@@ -42,9 +42,14 @@
 }
 .main {
   flex: 1;
+  height: 89vh;
   .header {
     color: #fff;
     margin-bottom: 2rem;
+    margin-top: -1rem;
+    h1 {
+      padding-top: 2rem;
+    }
     .edit-button {
       border-color: #00bc77;
       background-color: #00bc77;
