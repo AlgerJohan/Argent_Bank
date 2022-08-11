@@ -1,13 +1,13 @@
 import React from "react";
-import Index from "../index";
+// import Index from "../index";
 // import SignIn from "../signIn";
-// import User from "../user";
+import User from "../user";
 const Homepage = (props) => {
   return (
     <div>
-      <Index />
-      {/* <SignIn />
-      <User /> */}
+      {/* <Index /> */}
+      {/* <SignIn /> */}
+      <User />
     </div>
   );
 };
