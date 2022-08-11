@@ -1,9 +1,13 @@
 import React from "react";
-
+import Index from "../index";
+// import SignIn from "../signIn";
+// import User from "../user";
 const Homepage = (props) => {
   return (
     <div>
-      <h1>Homepage</h1>
+      <Index />
+      {/* <SignIn />
+      <User /> */}
     </div>
   );
 };
