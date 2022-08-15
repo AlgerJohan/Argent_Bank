@@ -1,24 +1,14 @@
 import React from "react";
-import ArgentBankLogo from "../Assets/argentBankLogo.png";
 import IconChat from "../Assets/icon-chat.png";
 import IconMoney from "../Assets/icon-money.png";
 import IconSecurity from "../Assets/icon-security.png";
 import "../Components/css/index2.css";
+import Nav from "./nav";
+import Footer from "./footer";
 const Index = (props) => {
   return (
     <div>
-      <nav className="main-nav">
-        <a className="main-nav-logo" href="./index.html">
-          <img className="main-nav-logo-image" src={ArgentBankLogo} alt="Argent Bank Logo" />
-          <h1 className="sr-only">Argent Bank</h1>
-        </a>
-        <div>
-          <a className="main-nav-item" href="./sign-in.html">
-            <i className="fa fa-user-circle"></i>
-            Sign In
-          </a>
-        </div>
-      </nav>
+      <Nav />
       <main>
         <div className="hero">
           <section className="hero-content">
@@ -51,9 +41,7 @@ const Index = (props) => {
           </div>
         </section>
       </main>
-      <footer className="footer">
-        <p className="footer-text">Copyright 2022 Argent Bank</p>
-      </footer>
+      <Footer />
     </div>
   );
 };

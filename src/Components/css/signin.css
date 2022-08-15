@@ -1,64 +1,42 @@
-.main-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 5px 20px;
-}
-.main-nav .main-nav-logo {
-  display: flex;
-  align-items: center;
-}
-.main-nav .main-nav-logo .main-nav-logo-image {
-  max-width: 100%;
-  width: 200px;
-}
-.main-nav .main-nav-logo .sr-only {
-  border: 0 !important;
-  clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
-  -webkit-clip-path: inset(50%) !important;
-  clip-path: inset(50%) !important; /* 2 */
-  height: 1px !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  padding: 0 !important;
-  position: absolute !important;
-  width: 1px !important;
-  white-space: nowrap !important; /* 3 */
-}
-.main-nav .main-nav-item {
-  text-decoration: none;
-  margin-right: 0.5rem;
-}
-.main-nav .main-nav-item:hover {
-  text-decoration: underline;
-}
-
-.main-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
 .main {
   flex: 1;
+  height: 89vh;
 }
-
-.bg-dark {
+.main .bg-dark {
   background-color: #12002b;
 }
-
-.sign-in-content {
+.main .sign-in-content {
   box-sizing: border-box;
   background-color: white;
   width: 300px;
   margin: 0 auto;
-  margin-top: 3rem;
   padding: 2rem;
+  position: relative;
+  top: 3rem;
 }
-.sign-in-content .sign-in-icon {
-  font-size: 5rem;
+.main .sign-in-content .sign-in-icon {
+  font-size: 1rem;
 }
-
-.sign-in-button {
+.main .sign-in-content .form-group .input-wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+.main .sign-in-content .form-group .input-wrapper input {
+  padding: 5px;
+  font-size: 1.2rem;
+}
+.main .sign-in-content .form-group .input-wrapper label {
+  font-weight: bold;
+}
+.main .sign-in-content .form-group .input-remember {
+  display: flex;
+}
+.main .sign-in-content .form-group .input-remember label {
+  margin-left: 0.25rem;
+}
+.main .sign-in-content .form-group .sign-in-button {
   display: block;
   width: 100%;
   padding: 8px;
@@ -70,37 +48,6 @@
   color: #fff;
 }
 
-.input-wrapper {
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-  margin-bottom: 1rem;
-}
-
-.input-wrapper label {
-  font-weight: bold;
-}
-
-.input-wrapper input {
-  padding: 5px;
-  font-size: 1.2rem;
-}
-
-.input-remember {
-  display: flex;
-}
-
-.input-remember label {
-  margin-left: 0.25rem;
-}
-
-.footer {
-  display: flex;
-  justify-content: center;
-  border-top: 2px solid #ccc;
-  padding: 2rem 0 1.5rem;
-}
-.footer .footer-text {
-  margin: 0;
-  padding: 0;
+.bg-dark {
+  background-color: #12002b;
 }

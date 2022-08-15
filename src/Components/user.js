@@ -1,6 +1,7 @@
 import React from "react";
 import ArgentBankLogo from "../Assets/argentBankLogo.png";
 import "../Components/css/user.css";
+import Footer from "./footer";
 const User = (props) => {
   return (
     <div>
@@ -61,9 +62,7 @@ const User = (props) => {
           </div>
         </section>
       </main>
-      <footer className="footer">
-        <p className="footer-text">Copyright 2020 Argent Bank</p>
-      </footer>
+      <Footer />
     </div>
   );
 };

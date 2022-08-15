@@ -1,27 +1,16 @@
 import React from "react";
 import "../Components/css/signin.css";
-import ArgentBankLogo from "../Assets/argentBankLogo.png";
-
+import Nav from "./nav";
+import Footer from "./footer";
 const SignIn = (props) => {
   return (
     <div>
-      <nav className="main-nav">
-        <a className="main-nav-logo" href="./index.html">
-          <img className="main-nav-logo-image" src={ArgentBankLogo} alt="Argent Bank Logo" />
-          <h1 className="sr-only">Argent Bank</h1>
-        </a>
-        <div>
-          <a className="main-nav-item" href="./sign-in.html">
-            <i className="fa fa-user-circle"></i>
-            Sign In
-          </a>
-        </div>
-      </nav>
+      <Nav />
       <main className="main bg-dark">
         <section className="sign-in-content">
           <i className="fa fa-user-circle sign-in-icon"></i>
           <h1>Sign In</h1>
-          <form>
+          <form className="form-group">
             <div className="input-wrapper">
               <label htmlFor="username">Username</label>
               <input type="text" id="username" />
@@ -43,9 +32,7 @@ const SignIn = (props) => {
           </form>
         </section>
       </main>
-      <footer className="footer">
-        <p className="footer-text">Copyright 2020 Argent Bank</p>
-      </footer>
+      <Footer />
     </div>
   );
 };
