@@ -24,6 +24,13 @@
       white-space: nowrap !important; /* 3 */
     }
   }
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+  }
+  a.router-link-exact-active {
+    color: #42b983;
+  }
   .main-nav-item {
     text-decoration: none;
     margin-right: 0.5rem;
