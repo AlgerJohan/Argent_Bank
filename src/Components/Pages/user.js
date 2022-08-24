@@ -2,8 +2,29 @@ import React from "react";
 import "../css/user.css";
 import Accounts from "./DataMapPages/account";
 import { data } from "./DataMapPages/userData";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { setSignInData } from "../../features/signInSlice";
 
 const User = () => {
+  const dispatch = useDispatch;
+  dispatch(setSignInData({ data }));
+  axios
+    .post("http://localhost:3001/api/v1/user/profile", {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+    .then((res) => {
+      console.log(res);
+      localStorage.setItem("token", res.data.body.token);
+      localStorage.setItem("user", res.data.user);
+    })
+    .catch((err) => {
+      alert(err.response.data.message);
+      console.log(err);
+    });
   return (
     <div>
       <main className="main bg-dark">
@@ -17,36 +38,6 @@ const User = () => {
         </div>
         <h2 className="sr-only">Accounts</h2>
         <Accounts data={data} />
-        {/* <section className="account">
-          <div className="account-content-wrapper">
-            <h3 className="account-title">Argent Bank Checking (x8349)</h3>
-            <p className="account-amount">$2,082.79</p>
-            <p className="account-amount-description">Available Balance</p>
-          </div>
-          <div className="account-content-wrapper cta">
-            <button className="transaction-button">View transactions</button>
-          </div>
-        </section>
-        <section className="account">
-          <div className="account-content-wrapper">
-            <h3 className="account-title">Argent Bank Savings (x6712)</h3>
-            <p className="account-amount">$10,928.42</p>
-            <p className="account-amount-description">Available Balance</p>
-          </div>
-          <div className="account-content-wrapper cta">
-            <button className="transaction-button">View transactions</button>
-          </div>
-        </section>
-        <section className="account">
-          <div className="account-content-wrapper">
-            <h3 className="account-title">Argent Bank Credit Card (x8349)</h3>
-            <p className="account-amount">$184.30</p>
-            <p className="account-amount-description">Current Balance</p>
-          </div>
-          <div className="account-content-wrapper cta">
-            <button className="transaction-button">View transactions</button>
-          </div>
-        </section> */}
       </main>
     </div>
   );
