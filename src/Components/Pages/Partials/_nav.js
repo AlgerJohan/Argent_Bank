@@ -2,15 +2,16 @@ import React from "react";
 import ArgentBankLogo from "../../../Assets/argentBankLogo.png";
 import "../../css/nav.css";
 import { Link } from "react-router-dom";
+
 const Nav = () => {
   const dataLinksConnected = [
     {
       path: "/user",
       icon: "fa fa-user-circle",
-      title: "Tony",
+      title: localStorage.getItem("firstName"),
     },
     {
-      path: "/",
+      path: "/signout",
       icon: "fa fa-sign-out",
       title: "Sign Out",
     },
@@ -22,12 +23,12 @@ const Nav = () => {
       title: "Sign In",
     },
   ];
-  const connected = false;
+  const connected = localStorage.getItem("logged");
   const dataLinks = connected ? dataLinksConnected : dataLinksDisconnected;
   const links = dataLinks.map((link, index) => (
     <Link key={index} className="main-nav-item" to={link.path}>
       <i className={link.icon}></i>
-      {link.title}
+      {" " + link.title}
     </Link>
   ));
   return (

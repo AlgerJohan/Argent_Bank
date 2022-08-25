@@ -10,16 +10,20 @@ const User = () => {
   const dispatch = useDispatch;
   dispatch(setSignInData({ data }));
   axios
-    .post("http://localhost:3001/api/v1/user/profile", {
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    })
+    .post(
+      "http://localhost:3001/api/v1/user/profile",
+      {},
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    )
     .then((res) => {
       console.log(res);
-      localStorage.setItem("token", res.data.body.token);
-      localStorage.setItem("user", res.data.user);
+      localStorage.setItem("firstName", res.data.body.firstName);
+      localStorage.setItem("lastName", res.data.body.lastName);
     })
     .catch((err) => {
       alert(err.response.data.message);
@@ -32,7 +36,7 @@ const User = () => {
           <h1>
             Welcome back
             <br />
-            Tony Jarvis!
+            {localStorage.getItem("firstName")} {localStorage.getItem("lastName")}
           </h1>
           <button className="edit-button">Edit Name</button>
         </div>

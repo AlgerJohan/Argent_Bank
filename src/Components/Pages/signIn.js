@@ -1,26 +1,34 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../css/signin.css";
-import { useDispatch } from "react-redux";
-import { setSignInData } from "../../features/signInSlice";
+// import { useDispatch } from "react-redux";
+// import { setSignInData } from "../../features/signInSlice";
 
+/**
+ * I'm trying to send a post request to my backend server, and if the request is successful, I want to
+ * redirect the user to the /user page.
+ */
 const SignIn = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handlerSubmit = (e) => {
     e.preventDefault();
-    dispatch(setSignInData({ email, password }));
+    // dispatch(setSignInData({ email, password }));
     axios
       .post("http://localhost:3001/api/v1/user/login", {
         email: email,
         password: password,
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
       })
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.body.token);
-        localStorage.setItem("user", res.data.user);
+        localStorage.setItem("logged", true);
         window.location.href = "/user";
       })
       .catch((err) => {
