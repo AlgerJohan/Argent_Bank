@@ -1,35 +1,36 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "../css/signin.css";
-// import { useDispatch } from "react-redux";
-// import { setSignInData } from "../../features/signInSlice";
-
-/**
+import { useDispatch } from "react-redux";
+import { setToken } from "../../features/signInSlice";
+import { useNavigate } from "react-router-dom";
+/**@reach/
  * I'm trying to send a post request to my backend server, and if the request is successful, I want to
  * redirect the user to the /user page.
  */
 const SignIn = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handlerSubmit = (e) => {
     e.preventDefault();
-    // dispatch(setSignInData({ email, password }));
     axios
       .post("http://localhost:3001/api/v1/user/login", {
         email: email,
         password: password,
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
       })
       .then((res) => {
         console.log(res);
         localStorage.setItem("token", res.data.body.token);
+        dispatch(setToken(res.data.body.token));
         localStorage.setItem("logged", true);
-        window.location.href = "/user";
+        // window.location.href = "/user";
+        navigate("/user");
       })
       .catch((err) => {
         alert(err.response.data.message);
@@ -43,10 +44,17 @@ const SignIn = () => {
         <section className="sign-in-content">
           <i className="fa fa-user-circle sign-in-icon"></i>
           <h1>Sign In</h1>
-          <form className="form-group" onSubmit={handlerSubmit}>
+          <form className="form-group" onSubmit={(e) => handlerSubmit(e)}>
             <div className="input-wrapper">
               <label htmlFor="username">Username</label>
-              <input type="text" id="username" value={email} onChange={(e) => setEmail(e.target.value)} required />
+              <input
+                type="text"
+                id="username"
+                value={email}
+                placeholder="email"
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
             </div>
             <div className="input-wrapper">
               <label htmlFor="password">Password</label>
@@ -54,6 +62,7 @@ const SignIn = () => {
                 type="password"
                 id="password"
                 value={password}
+                placeholder="password"
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />

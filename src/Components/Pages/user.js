@@ -1,43 +1,48 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/user.css";
 import Accounts from "./DataMapPages/account";
 import { data } from "./DataMapPages/userData";
 import axios from "axios";
-import { useDispatch } from "react-redux";
-import { setSignInData } from "../../features/signInSlice";
-
+import { useDispatch, useSelector } from "react-redux";
+// import { setSignInData } from "../../features/signInSlice";
+import { setUser } from "../../features/signInSlice";
 const User = () => {
-  const dispatch = useDispatch;
-  dispatch(setSignInData({ data }));
-  axios
-    .post(
-      "http://localhost:3001/api/v1/user/profile",
-      {},
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-      }
-    )
-    .then((res) => {
-      console.log(res);
-      localStorage.setItem("firstName", res.data.body.firstName);
-      localStorage.setItem("lastName", res.data.body.lastName);
-    })
-    .catch((err) => {
-      alert(err.response.data.message);
-      console.log(err);
-    });
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.signIn.user);
+  const token = useSelector((state) => state.signIn.token);
+  // dispatch(setSignInData({ data }));
+  useEffect(() => {
+    axios
+      .post(
+        "http://localhost:3001/api/v1/user/profile",
+        {},
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => {
+        dispatch(setUser(res.data.body));
+        console.log(res);
+      })
+      .catch((err) => {
+        alert(err.response.data.message);
+        console.log(err);
+      });
+  }, [dispatch, token]);
   return (
     <div>
       <main className="main bg-dark">
         <div className="header">
-          <h1>
-            Welcome back
-            <br />
-            {localStorage.getItem("firstName")} {localStorage.getItem("lastName")}
-          </h1>
+          {user && (
+            <h1>
+              Welcome back
+              <br />
+              {user.firstName} {user.lastName}
+            </h1>
+          )}
           <button className="edit-button">Edit Name</button>
         </div>
         <h2 className="sr-only">Accounts</h2>
