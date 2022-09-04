@@ -20,21 +20,19 @@ const SignIn = () => {
       .post("http://localhost:3001/api/v1/user/login", {
         email: email,
         password: password,
-        headers: {
-          "Content-Type": "application/json",
-        },
       })
       .then((res) => {
-        console.log(res);
-        localStorage.setItem("token", res.data.body.token);
-        dispatch(setToken(res.data.body.token));
-        localStorage.setItem("logged", true);
-        // window.location.href = "/user";
-        navigate("/user");
+        if (res.data.status === 200) {
+          dispatch(setToken(res.data.body.token));
+          navigate("/user");
+        } else {
+          alert(res.data.message);
+        }
+        // localStorage.setItem("logged", true);
       })
       .catch((err) => {
         alert(err.response.data.message);
-        console.log(err);
+        console.error(err);
       });
   };
 

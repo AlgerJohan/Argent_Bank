@@ -53,6 +53,7 @@
     ]
   },
   "devDependencies": {
+    "eslint-plugin-react-hooks": "^4.6.0",
     "nodemon": "^2.0.4",
     "web-vitals": "^2.1.4"
   }
