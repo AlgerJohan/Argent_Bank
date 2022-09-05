@@ -1,72 +1,51 @@
-# Project #13 - Argent Bank API
+# ArgentBank
 
-This codebase contains the code needed to run the backend for Argent Bank.
+OPENCLASSROOMS Project 13 : Use an API for a bank user account with React
 
-## Getting Started
+[ArgentBank](https://github.com/AlgerJohan/Argent_Bank)
 
-### Prerequisites
+# DEPENDENCIES
 
-Argent Bank uses the following tech stack:
+- node [v16.17.0](https://nodejs.org/en/).
+- React [v17.0.2 ](https://fr.reactjs.org/).
+- React Router [v6.3.0](https://reactrouter.com/).
+- Redux Toolkit [1.8.5] (https://redux-toolkit.js.org/)
+- Text editor: [Visual Studio Code](https://code.visualstudio.com/).
 
-- [Node.js v12](https://nodejs.org/en/)
-- [MongoDB Community Server](https://www.mongodb.com/try/download/community)
+This project was bootstrapped with [Create React App](https://create-react-app.dev/).
 
-Please make sure you have the right versions and download both packages. You can verify this by using the following commands in your terminal:
+# API Front-end Dashboard
 
-```bash
-# Check Node.js version
-node --version
+This repo contains all the source code to run the micro API
 
-# Check Mongo version
-mongo --version
-```
+[API INSTALLATION](https://github.com/OpenClassrooms-Student-Center/Project-10-Bank-API).
 
-### Instructions
+The API was bootstrapped without Docker.
 
-1. Fork this repo
-1. Clone the repo onto your computer
-1. Open a terminal window in the cloned project
-1. Run the following commands:
+- Fork the repository
+- Clone it on your computer.
+- The `npm` command will allow you to install the dependencies.
+- The `npm dev` command will allow you to run the micro API.
 
-```bash
-# Install dependencies
-npm install
+## Endpoints
 
-# Start local dev server
-npm run dev:server
+Login : http://localhost:3001/user/login
 
-# Populate database with two users
-npm run populate-db
-```
+Signup : http://localhost:3001/user/signup
 
-Your server should now be running at http://locahost:3001 and you will now have two users in your MongoDB database!
+Profile : http://localhost:3001/user/profile
 
-## Populated Database Data
+Transaction : http://localhost:3001/user/profile/transactions
 
-Once you run the `populate-db` script, you should have two users in your database:
+# INSTALLATION
 
-### Tony Stark
+- Create a new file folder
+  `git init`
 
-- First Name: `Tony`
-- Last Name: `Stark`
-- Email: `tony@stark.com`
-- Password: `password123`
+- Clone The repository
+  `git clone https://github.com/AlgerJohan/Argent_Bank.git`
 
-### Steve Rogers
+- The `npm` command will allow you to install the dependencies.
 
-- First Name: `Steve`,
-- Last Name: `Rogers`,
-- Email: `steve@rogers.com`,
-- Password: `password456`
-
-## API Documentation
-
-To learn more about how the API works, once you have started your local environment, you can visit: http://localhost:3001/api-docs
-
-## Design Assets
-
-Static HTML and CSS has been created for most of the site and is located in: `/designs`.
-
-For some of the dynamic features, like toggling user editing, there is a mock-up for it in `/designs/wireframes/edit-user-name.png`.
-
-And for the API model that you will be proposing for transactions, the wireframe can be found in `/designs/wireframes/transactions.png`.
+- Launch the project
+  `npm start`
