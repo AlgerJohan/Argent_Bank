@@ -11,8 +11,10 @@ OPENCLASSROOMS Project 13 : Use an API for a bank user account with React
 - React Router [v6.3.0](https://reactrouter.com/).
 - Redux Toolkit [1.8.5] (https://redux-toolkit.js.org/)
 - Text editor: [Visual Studio Code](https://code.visualstudio.com/).
+- [Axios](https://www.npmjs.com/package/axios) for API calls.
+- React Create App [v5.0.1](https://www.npmjs.com/package/create-react-app).
 
-This project was bootstrapped with [Create React App](https://create-react-app.dev/).
+# INSTALLATION
 
 # API Front-end Dashboard
 
@@ -29,13 +31,11 @@ The API was bootstrapped without Docker.
 
 ## Endpoints
 
-Login : http://localhost:3001/user/login
+Login : http://localhost:3000/
 
-Signup : http://localhost:3001/user/signup
+Signin : http://localhost:3000/signin
 
-Profile : http://localhost:3001/user/profile
-
-Transaction : http://localhost:3001/user/profile/transactions
+Profile : http://localhost:3000/user
 
 # INSTALLATION
 
