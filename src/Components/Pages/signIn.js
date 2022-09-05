@@ -28,7 +28,6 @@ const SignIn = () => {
         } else {
           alert(res.data.message);
         }
-        // localStorage.setItem("logged", true);
       })
       .catch((err) => {
         alert(err.response.data.message);

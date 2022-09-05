@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "../css/user.css";
-import "../css/editProfil.css";
 import Accounts from "./DataMapPages/account";
 import { data } from "./DataMapPages/userData";
 import axios from "axios";
@@ -38,23 +37,28 @@ const User = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .put(
-        "http://localhost:3001/api/v1/user/profile",
-        { firstName: e.target[0].value, lastName: e.target[1].value },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      )
-      .then((res) => {
-        dispatch(setUser(res.data.body));
-      })
-      .catch((err) => {
-        console.error(err.response.data.message);
-      });
+    if (e.target[0].value === "" || e.target[1].value === "") {
+      alert("Veuillez remplir tous les champs");
+    } else {
+      axios
+        .put(
+          "http://localhost:3001/api/v1/user/profile",
+          { firstName: e.target[0].value, lastName: e.target[1].value },
+          {
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        )
+        .then((res) => {
+          dispatch(setUser(res.data.body));
+          setDisplayForm(false);
+        })
+        .catch((err) => {
+          console.error(err.response.data.message);
+        });
+    }
   };
 
   return (
@@ -81,7 +85,9 @@ const User = () => {
               </div>
               <div className="choice">
                 <button type="submit">Save</button>
-                <button onClick={() => setDisplayForm(false)}>Cancel</button>
+                <button type="button" onClick={() => setDisplayForm(false)}>
+                  Cancel
+                </button>
               </div>
             </form>
           )}
