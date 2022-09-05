@@ -2,15 +2,26 @@ import React from "react";
 import ArgentBankLogo from "../../../Assets/argentBankLogo.png";
 import "../../css/nav.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 const Nav = () => {
+  const user = useSelector((state) => state.signIn.user);
+  let loggedIn = false;
+  let firstName = "";
+  let lastName = "";
+  if (user != null) {
+    loggedIn = true;
+    firstName = user.firstName;
+    lastName = user.lastName;
+  }
   const dataLinksConnected = [
     {
       path: "/user",
       icon: "fa fa-user-circle",
-      title: "Tony",
+      title: firstName + " " + lastName,
     },
     {
-      path: "/",
+      path: "/signout",
       icon: "fa fa-sign-out",
       title: "Sign Out",
     },
@@ -22,12 +33,11 @@ const Nav = () => {
       title: "Sign In",
     },
   ];
-  const connected = false;
-  const dataLinks = connected ? dataLinksConnected : dataLinksDisconnected;
+  const dataLinks = loggedIn ? dataLinksConnected : dataLinksDisconnected;
   const links = dataLinks.map((link, index) => (
     <Link key={index} className="main-nav-item" to={link.path}>
       <i className={link.icon}></i>
-      {link.title}
+      {" " + link.title}
     </Link>
   ));
   return (
