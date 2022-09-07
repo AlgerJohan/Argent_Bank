@@ -2,8 +2,8 @@ swagger: "2.0"
 info:
   title: Bank Argent API documentation
   description: Contains all available API endpoints in this codebase
-  version: 1.0.0
-  termsOfService: http://swagger.io/terms/
+  version: "1.0.0"
+  termsOfService: "http://swagger.io/terms/"
 host: localhost:3001
 basePath: /api/v1
 schemes:
@@ -70,12 +70,12 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
-          type: string
+          type: "string"
       produces:
         - application/json
       responses:
         "200":
-          description: User profile retrieved Successfully
+          description: User profile retrieved successully
           schema:
             $ref: "#/definitions/ApiResponse"
         "400":
@@ -94,7 +94,7 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
-          type: string
+          type: "string"
         - in: body
           name: body
           description: Update user profile attributes
@@ -105,7 +105,7 @@ paths:
         - application/json
       responses:
         "200":
-          description: User profile retrieved Successfully
+          description: User profile retrieved successully
           schema:
             $ref: "#/definitions/ApiResponse"
         "400":
@@ -125,12 +125,12 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
-          type: string
+          type: "string"
       produces:
         - application/json
       responses:
         "200":
-          description: User transaction retrieved Successfully
+          description: User transaction retrieved successully
           schema:
             $ref: "#/definitions/Transaction"
         "400":
@@ -150,17 +150,17 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
-          type: string
+          type: "string"
         - in: path
           name: id
           type: integer
           required: true
-          description: ID of the transaction to get
+          description: "ID of the transaction to get"
       produces:
         - application/json
       responses:
         "200":
-          description: User Transaction retrieved Successfully
+          description: User Transaction retrieved successully
           schema:
             $ref: "#/definitions/Transaction"
         "400":
@@ -179,12 +179,12 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
-          type: string
+          type: "string"
         - in: path
           name: id
           type: integer
           required: true
-          description: ID of the transaction to get
+          description: "ID of the transaction to get"
         - in: body
           name: body
           description: Update user transaction
@@ -195,7 +195,7 @@ paths:
         - application/json
       responses:
         "200":
-          description: User profile retrieved successfully
+          description: User profile retrieved successully
           schema:
             $ref: "#/definitions/TransactionUpdate"
         "400":
@@ -214,17 +214,17 @@ paths:
           name: Authorization
           description: Attach Bearer JWT token
           required: true
-          type: string
+          type: "string"
         - in: path
           name: id
           type: integer
           required: true
-          description: ID of the transaction to get
+          description: "ID of the transaction to get"
       produces:
         - application/json
       responses:
         "200":
-          description: User Transaction deleted Successfully
+          description: User Transaction deleted successully
         "400":
           description: Invalid Fields
         "500":
@@ -300,7 +300,7 @@ definitions:
           detail:
             type: object
             properties:
-              typeoftransaction:
+              typeOfTransaction:
                 type: string
               category:
                 type: string
