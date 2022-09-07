@@ -75,7 +75,7 @@ paths:
         - application/json
       responses:
         "200":
-          description: User profile retrieved successully
+          description: User profile retrieved successfully
           schema:
             $ref: "#/definitions/ApiResponse"
         "400":
@@ -105,7 +105,7 @@ paths:
         - application/json
       responses:
         "200":
-          description: User profile retrieved successully
+          description: User profile retrieved successfully
           schema:
             $ref: "#/definitions/ApiResponse"
         "400":
@@ -130,7 +130,7 @@ paths:
         - application/json
       responses:
         "200":
-          description: User transaction retrieved successully
+          description: User transaction retrieved successfully
           schema:
             $ref: "#/definitions/Transaction"
         "400":
@@ -160,7 +160,7 @@ paths:
         - application/json
       responses:
         "200":
-          description: User Transaction retrieved successully
+          description: User Transaction retrieved successfully
           schema:
             $ref: "#/definitions/Transaction"
         "400":
@@ -195,7 +195,7 @@ paths:
         - application/json
       responses:
         "200":
-          description: User profile retrieved successully
+          description: User profile retrieved successfully
           schema:
             $ref: "#/definitions/TransactionUpdate"
         "400":
@@ -224,7 +224,7 @@ paths:
         - application/json
       responses:
         "200":
-          description: User Transaction deleted successully
+          description: User Transaction deleted successfully
         "400":
           description: Invalid Fields
         "500":
