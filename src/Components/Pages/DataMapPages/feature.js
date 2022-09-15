@@ -1,5 +1,9 @@
 import React from "react";
 
+/**
+ * The image, title
+ * @param props - This is the object that contains all the data that is passed to the component.
+ */
 const Features = (props) =>
   props.data.map((feature, index) => (
     <div key={index} className="feature-item">

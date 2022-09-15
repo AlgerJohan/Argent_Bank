@@ -7,6 +7,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { setUser } from "../../features/signInSlice";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * It's a React component that uses hooks to get the user's data from the Redux store and then uses
+ * axios to make a request to the server to get the user's data from the database.
+ */
 const User = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -35,6 +39,14 @@ const User = () => {
       });
   }, [dispatch, token, navigate]);
 
+  /**
+   * It's a function that takes an event as an argument, prevents the default behavior of the event,
+   * checks if the first and second inputs are empty, if they are, it alerts the user to fill them, if
+   * they aren't, it sends a PUT request to the server with the first and second inputs as the body, and
+   * if the request is successful, it dispatches the setUser action with the response body as the
+   * payload, and sets the displayForm state to false.
+   * @param e - the event object
+   */
   const handleSubmit = (e) => {
     e.preventDefault();
     if (e.target[0].value === "" || e.target[1].value === "") {

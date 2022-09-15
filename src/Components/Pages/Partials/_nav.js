@@ -4,6 +4,9 @@ import "../../css/nav.css";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
+/**
+ * A function that returns a component.
+ */
 const Nav = () => {
   const user = useSelector((state) => state.signIn.user);
   let loggedIn = false;
@@ -33,6 +36,7 @@ const Nav = () => {
       title: "Sign In",
     },
   ];
+  /* A ternary operator. It is a shorthand if/else statement. */
   const dataLinks = loggedIn ? dataLinksConnected : dataLinksDisconnected;
   const links = dataLinks.map((link, index) => (
     <Link key={index} className="main-nav-item" to={link.path}>

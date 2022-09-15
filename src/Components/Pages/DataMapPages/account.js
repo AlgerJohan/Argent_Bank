@@ -1,5 +1,10 @@
 import React from "react";
 
+/**
+ * The second div element has a class name of account-content-wrapper cta.
+ * @param props - The props object is a parameter that's passed into your component. It contains all
+ * the data that's passed to the component from a parent component.
+ */
 const Accounts = (props) =>
   props.data.map((account, index) => (
     <section key={index} className="account">
