@@ -64,6 +64,30 @@ paths:
           description: Transaction not found
         "500":
           description: Internal Server Error
+    post:
+      security:
+        - Bearer: []
+      tags:
+        - User Module Transaction
+      summary: User Transaction API
+      description: API for updating a user transaction
+      parameters:
+        - in: header
+          name: Authorization
+          description: Attach Bearer JWT token
+          required: true
+          type: "string"
+      produces:
+        - application/json
+      responses:
+        "200":
+          description: User profile retrieved successfully
+          schema:
+            $ref: "#/definitions/TransactionUpdate"
+        "404":
+          description: Transaction not found
+        "500":
+          description: Internal Server Error
     put:
       security:
         - Bearer: []
@@ -155,6 +179,13 @@ definitions:
                 type: string
               wording:
                 type: string
+  UserTransaction:
+    type: object
+    properties:
+      firstName:
+        type: string
+      lastName:
+        type: string
   TransactionUpdate:
     type: object
     properties:
